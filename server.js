@@ -18,7 +18,10 @@ const connection = mysql.createConnection({
 });
 
 connection.connect((err) => {
-    if (err) throw err;
+    if (err) {
+        console.log('Erro ao conectar:', err);
+        return;
+    }
     console.log('MySQL conectado');
 });
 
@@ -28,6 +31,23 @@ app.get('/', (req, res) => {
 
 app.get('/cadastro', (req, res) => {
     res.sendFile(path.join(__dirname, 'public/html/cadastro.html'));
+});
+
+app.get('/aluno', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public/html/aluno.html'));
+});
+
+app.get('/usuarios', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public/html/usuarios.html'));
+});
+
+app.get('/api/usuarios', (req, res) => {
+    connection.query('SELECT * FROM usuarios ORDER BY id DESC', (err, results) => {
+        if (err) {
+            return res.status(500).json({ success: false, message: 'Erro' });
+        }
+        res.json({ success: true, usuarios: results });
+    });
 });
 
 app.post('/api/cadastro', (req, res) => {

@@ -9,12 +9,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 const response = await fetch('/api/login', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ cpf })
+                    body: JSON.stringify({ cpf: cpf })
                 });
                 const data = await response.json();
                 
                 if (data.success) {
-                    alert('Login realizado com sucesso!');
+                    localStorage.setItem('usuarioLogado', JSON.stringify(data.usuario));
+                    localStorage.setItem('temProva', 'true');
+                    window.location.href = '/aluno';
                 } else {
                     alert(data.message);
                 }
@@ -55,6 +57,13 @@ document.addEventListener('DOMContentLoaded', function() {
     if (btnCadastro) {
         btnCadastro.addEventListener('click', () => {
             window.location.href = '/cadastro';
+        });
+    }
+    
+    const btnVerUsuarios = document.getElementById('btn-ver-usuarios');
+    if (btnVerUsuarios) {
+        btnVerUsuarios.addEventListener('click', () => {
+            window.location.href = '/usuarios';
         });
     }
     

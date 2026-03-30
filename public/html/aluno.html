@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel do Aluno - SESI</title>
+    <link rel="stylesheet" href="/css/aluno.css">
+</head>
+<body>
+    <div class="menu-container">
+        <img class="img-logo" src="/img/logo.png" alt="Logo-SESI-SP">
+        <div style="display: flex; align-items: center;">
+            <div class="notificacao" id="notificacao">
+                <div class="icone-sino">🔔</div>
+                <div class="badge" id="badge"></div>
+            </div>
+            <button class="btn-sair" id="btn-sair">Sair</button>
+        </div>
+    </div>
+
+    <div class="cards-container">
+        <div class="card" id="card-prova">
+            <div class="card-icon">📝</div>
+            <h2>Realizar Prova</h2>
+            <p>Inicie sua avaliação</p>
+            <button class="card-btn">Iniciar Prova</button>
+        </div>
+
+        <div class="card notas" id="card-notas">
+            <div class="card-icon">📊</div>
+            <h2>Ver Notas</h2>
+            <p>Consulte seus resultados</p>
+            <button class="card-btn">Ver Notas</button>
+        </div>
+    </div>
+
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <h3 id="modal-titulo"></h3>
+            <p id="modal-mensagem"></p>
+            <button class="close-modal" onclick="fecharModal()">Fechar</button>
+        </div>
+    </div>
+
+    <div class="footer-container">
+        <h1 class="footer-h1">@2026 SESI - Todos os direitos reservados</h1>
+    </div>
+
+    <script src="/js/aluno.js"></script>
+</body>
+</html>
