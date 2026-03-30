@@ -1,33 +1,247 @@
-.usuarios-container {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    width: 80%;
-    margin: 20px auto;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
+body {
+    font-family: 'Segoe UI', 'Roboto', system-ui, -apple-system, 'Poppins', sans-serif;
+    background: linear-gradient(145deg, #fff5f5 0%, #f8f0f0 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* ----- MENU SUPERIOR (logo SESI) ----- */
+.menu-container {
+    background: #FFFFFF;
+    padding: 1rem 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03), 0 2px 4px rgba(0, 0, 0, 0.05);
+    border-bottom: 3px solid #E31B23;
+    /* vermelho SESI */
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.img-logo {
+    max-height: 70px;
+    width: auto;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.05));
+    transition: transform 0.2s ease;
+}
+
+.img-logo:hover {
+    transform: scale(1.02);
+}
+
+/* ----- ÁREA PRINCIPAL (centraliza o card) ----- */
+.main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 1.5rem;
+}
+
+/* ----- CARD DA LISTA (estilo moderno, vermelho SESI como destaque) ----- */
+.usuarios-container {
+    background: #ffffff;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 2rem 2rem 2.5rem;
+    border-radius: 32px;
+    box-shadow: 0 25px 45px -12px rgba(227, 27, 35, 0.2), 0 8px 18px rgba(0, 0, 0, 0.05);
+    transition: all 0.25s ease;
+    border: 1px solid rgba(227, 27, 35, 0.15);
+}
+
+/* Botão Voltar (estilo secundário com borda vermelha suave) */
+.btn-voltar {
+    background: transparent;
+    color: #E31B23;
+    border: 2px solid #E31B23;
+    padding: 0.7rem 1.5rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 40px;
+    cursor: pointer;
+    margin-bottom: 1.8rem;
+    transition: all 0.25s ease;
+    font-family: inherit;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #fff;
+}
+
+.btn-voltar:hover {
+    background: #E31B23;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(227, 27, 35, 0.2);
+}
+
+.btn-voltar:active {
+    transform: translateY(1px);
+}
+
+/* Título da página */
+.usuarios-container h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #E31B23;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.3px;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 8px;
+}
+
+.usuarios-container h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: #E31B23;
+    border-radius: 4px;
+}
+
+/* Estilo da tabela moderna */
 table {
     width: 100%;
     border-collapse: collapse;
-}
-
-th,
-td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 th {
-    background-color: #f2f2f2;
+    background-color: #E31B23;
+    color: white;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 14px 12px;
+    text-align: left;
 }
 
-.btn-voltar {
-    background-color: #6c757d;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-bottom: 20px;
+td {
+    padding: 12px 12px;
+    border-bottom: 1px solid #f0e2e2;
+    color: #2c2c2c;
+    font-size: 0.9rem;
+}
+
+tr {
+    transition: background-color 0.2s ease;
+}
+
+tr:hover {
+    background-color: #fff5f5;
+}
+
+/* Estilo para linhas alternadas (zebra) */
+tbody tr:nth-child(even) {
+    background-color: #fefafa;
+}
+
+tbody tr:nth-child(even):hover {
+    background-color: #ffecec;
+}
+
+/* Mensagem quando não há dados (será inserida pelo JS, mas já estilizamos) */
+.empty-message {
+    text-align: center;
+    padding: 2rem;
+    color: #888;
+    font-style: italic;
+}
+
+/* Rodapé estiloso igual à página de cadastro */
+.footer-container {
+    background: #1e1a1a;
+    margin-top: 2rem;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    border-top: 4px solid #E31B23;
+}
+
+.footer-h1 {
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: #dddddd;
+    letter-spacing: 0.3px;
+    margin: 0;
+    font-family: inherit;
+}
+
+/* RESPONSIVIDADE (mantém a estrutura e funcionalidade) */
+@media (max-width: 768px) {
+    .usuarios-container {
+        padding: 1.5rem;
+        border-radius: 24px;
+    }
+
+    .usuarios-container h2 {
+        font-size: 1.5rem;
+    }
+
+    th,
+    td {
+        padding: 10px 8px;
+        font-size: 0.85rem;
+    }
+
+    .btn-voltar {
+        padding: 0.5rem 1.2rem;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 550px) {
+    .main {
+        padding: 1rem;
+    }
+
+    .usuarios-container {
+        padding: 1.2rem;
+    }
+
+    th,
+    td {
+        padding: 8px 6px;
+        font-size: 0.75rem;
+    }
+
+    .btn-voltar {
+        margin-bottom: 1rem;
+    }
+
+    .img-logo {
+        max-height: 55px;
+    }
+}
+
+/* Para telas muito pequenas, a tabela ganha scroll horizontal sem quebrar layout */
+@media (max-width: 500px) {
+    .usuarios-container {
+        overflow-x: auto;
+    }
+
+    table {
+        min-width: 400px;
+    }
+}
+
+/* Acessibilidade */
+button:focus-visible {
+    outline: 2px solid #E31B23;
+    outline-offset: 2px;
 }

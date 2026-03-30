@@ -2,37 +2,23 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Usuários</title>
     <link rel="stylesheet" href="/css/usuarios.css">
 </head>
 <body>
     <div class="menu-container">
-        <img class="img-logo" src="/img/logo.png" alt="Logo-SESI-SP">
+        <img class="img-logo" src="/img/logo.png" alt="Logo">
     </div>
-    
-    <div class="main">
-        <div class="usuarios-container">
-            <button class="btn-voltar" onclick="window.location.href='/'">Voltar</button>
-            <h2>Lista de Usuários Cadastrados</h2>
-            <table id="tabela-usuarios">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nome Completo</th>
-                        <th>CPF</th>
-                        <th>Data Cadastro</th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
-        </div>
+    <div class="usuarios-container">
+        <button class="btn-voltar" onclick="window.location.href='/'">Voltar</button>
+        <h2>Usuários Cadastrados</h2>
+        <table id="tabela-usuarios">
+            <thead>
+                <tr><th>ID</th><th>Nome</th><th>CPF</th><th>Tipo</th><th>Turma</th><th>Data</th></tr>
+            </thead>
+            <tbody></tbody>
+        </table>
     </div>
-    
-    <div class="footer-container">
-        <h1 class="footer-h1">@2026 SESI - Todos os direitos reservados</h1>
-    </div>
-    
     <script src="/js/usuarios.js"></script>
 </body>
-</html>
+</html> 

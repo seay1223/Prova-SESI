@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Painel do Professor</title>
+    <link rel="stylesheet" href="/css/professor.css">
+</head>
+<body>
+    <div class="menu-container">
+        <img class="img-logo" src="/img/logo.png" alt="Logo">
+        <button class="btn-sair" id="btn-sair">Sair</button>
+    </div>
+    <div class="container">
+        <h1>Área do Professor</h1>
+        <div>
+            <h2>Escolha uma turma</h2>
+            <select id="turmaSelect">
+                <option value="">Selecione...</option>
+            </select>
+            <div id="infoTurma"></div>
+        </div>
+        <div>
+            <button id="btn-criar-prova">Criar Nova Prova</button>
+        </div>
+        <div id="notasTurma" style="margin-top: 20px;"></div>
+    </div>
+
+    <div id="modalProva" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Criar Prova</h2>
+            <form id="formProva">
+                <input type="text" id="titulo" placeholder="Título da prova" required>
+                <textarea id="descricao" placeholder="Descrição"></textarea>
+                <input type="datetime-local" id="data_inicio" required>
+                <input type="datetime-local" id="data_fim" required>
+                <div id="perguntasContainer">
+                    <h3>Perguntas</h3>
+                    <div class="pergunta" data-idx="0">
+                        <input type="text" placeholder="Enunciado" class="enunciado" required>
+                        <input type="text" placeholder="Opção A" class="opcao_a" required>
+                        <input type="text" placeholder="Opção B" class="opcao_b" required>
+                        <input type="text" placeholder="Opção C" class="opcao_c" required>
+                        <input type="text" placeholder="Opção D" class="opcao_d" required>
+                        <select class="resposta_correta">
+                            <option value="a">A</option>
+                            <option value="b">B</option>
+                            <option value="c">C</option>
+                            <option value="d">D</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="button" id="addPergunta">+ Adicionar Pergunta</button>
+                <button type="submit">Criar Prova</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="/js/professor.js"></script>
+</body>
+</html>

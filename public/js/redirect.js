@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (data.success) {
                     localStorage.setItem('usuarioLogado', JSON.stringify(data.usuario));
                     localStorage.setItem('temProva', 'true');
+                    alert('Login realizado com sucesso!');
                     window.location.href = '/aluno';
                 } else {
                     alert(data.message);
@@ -78,5 +79,21 @@ document.addEventListener('DOMContentLoaded', function() {
                 e.target.value = value;
             }
         });
+    }
+    
+    const btnSair = document.getElementById('btn-sair');
+    if (btnSair) {
+        btnSair.addEventListener('click', () => {
+            localStorage.removeItem('usuarioLogado');
+            localStorage.removeItem('temProva');
+            window.location.href = '/';
+        });
+    }
+    
+    if (window.location.pathname === '/aluno') {
+        const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado') || '{}');
+        if (!usuarioLogado.nome) {
+            window.location.href = '/';
+        }
     }
 });
