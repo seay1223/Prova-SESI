@@ -1,0 +1,9 @@
+CREATE DATABASE prova_sesi;
+USE prova_sesi;
+
+CREATE TABLE usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome_completo VARCHAR(255) NOT NULL,
+    cpf VARCHAR(14) NOT NULL UNIQUE,
+    data_cadastro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
